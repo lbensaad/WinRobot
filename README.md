@@ -49,7 +49,7 @@ CComQIPtr<IWinRobotSession> pSession = pUnk;
 
 // capture screen
 pUnk = 0;
-hr = pSession->CreateScreenCapture(-1280,0,1280*2,800,&pUnk);
+hr = pSession->CreateScreenCapture(0,0,1024,768,&pUnk);
 
 // get screen image data(with file mapping)
 CComQIPtr<IScreenBufferStream> pBuffer = pUnk;
