@@ -1,6 +1,6 @@
 ## About WinRobot
 
-* A powerful + high-performance screen capturer and Keyboard/mouse input simulator(Support Windows UAC\Winlogon\DirectShowOverlay).
+* A powerful & high performance screen capturer and Keyboard/mouse input simulator(Support Windows UAC\Winlogon\DirectShowOverlay).
 * (Optional)An implementation of java.awt.Robot under windows
 
 ## User Manual
