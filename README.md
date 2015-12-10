@@ -73,4 +73,4 @@ The c++ part files are provided for Visual Studio 2008.The next step is to open 
     import com.caoym.WinRobot;
     //...
     WinRobot robot;
-    BufferedImage screen = robot.createScreenCapture(new Rectangle(-65535, -65535, 65535 * 2, 65535 * 2));
+    BufferedImage screen = robot.createScreenCapture(new Rectangle(0, 0, 1024, 768));
