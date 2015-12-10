@@ -30,47 +30,50 @@ The c++ part files are provided for Visual Studio 2008.The next step is to open 
 
 > C++
 
-    #ifdef _WIN64
-    #import "WinRobotCorex64.dll" raw_interfaces_only, raw_native_types,auto_search,no_namespace
-    #import "WinRobotHostx64.exe" auto_search,no_namespace
-    #else
-    #import "WinRobotCorex86.dll" raw_interfaces_only, raw_native_types,auto_search,no_namespace
-    #import "WinRobotHostx86.exe" auto_search,no_namespace
-    #endif
+```CPP
+#ifdef _WIN64
+#import "WinRobotCorex64.dll" raw_interfaces_only, raw_native_types,auto_search,no_namespace
+#import "WinRobotHostx64.exe" auto_search,no_namespace
+#else
+#import "WinRobotCorex86.dll" raw_interfaces_only, raw_native_types,auto_search,no_namespace
+#import "WinRobotHostx86.exe" auto_search,no_namespace
+#endif
 
-    CComPtr<IWinRobotService> pService;
-    hr = pService.CoCreateInstance(__uuidof(ServiceHost) );
+CComPtr<IWinRobotService> pService;
+hr = pService.CoCreateInstance(__uuidof(ServiceHost) );
 
-    //get active console session
-    CComPtr<IUnknown> pUnk;
-    hr = pService->GetActiveConsoleSession(&pUnk);
-    CComQIPtr<IWinRobotSession> pSession = pUnk;
+//get active console session
+CComPtr<IUnknown> pUnk;
+hr = pService->GetActiveConsoleSession(&pUnk);
+CComQIPtr<IWinRobotSession> pSession = pUnk;
 
-    // capture screen
-    pUnk = 0;
-    hr = pSession->CreateScreenCapture(-1280,0,1280*2,800,&pUnk);
+// capture screen
+pUnk = 0;
+hr = pSession->CreateScreenCapture(-1280,0,1280*2,800,&pUnk);
 
-    // get screen image data(with file mapping)
-    CComQIPtr<IScreenBufferStream> pBuffer = pUnk;
-    CComBSTR name;
-    ULONG size = 0;
-    pBuffer->get_FileMappingName(&name);
-    pBuffer->get_Size(&size);
-    CFileMapping fm;
-    fm.Open(name,size,false);
-    // do something with fm...
+// get screen image data(with file mapping)
+CComQIPtr<IScreenBufferStream> pBuffer = pUnk;
+CComBSTR name;
+ULONG size = 0;
+pBuffer->get_FileMappingName(&name);
+pBuffer->get_Size(&size);
+CFileMapping fm;
+fm.Open(name,size,false);
+// do something with fm...
 
-    // get screen image data(with stream read)
-    CComQIPtr<ISequentialStream> pStream = pUnk;
-    char buf[1024];
-    ULONG cbBuffer  = 0 ;
-    while (pStream->Read(buf,sizeof(buf),&cbBuffer) == S_OK ){
-        //	do something
-    }
-
+// get screen image data(with stream read)
+CComQIPtr<ISequentialStream> pStream = pUnk;
+char buf[1024];
+ULONG cbBuffer  = 0 ;
+while (pStream->Read(buf,sizeof(buf),&cbBuffer) == S_OK ){
+    //	do something
+}
+```
 > JAVA
-
-    import com.caoym.WinRobot;
-    //...
-    WinRobot robot;
-    BufferedImage screen = robot.createScreenCapture(new Rectangle(0, 0, 1024, 768));
+ 
+```JAVA
+import com.caoym.WinRobot;
+//...
+WinRobot robot;
+BufferedImage screen = robot.createScreenCapture(new Rectangle(0, 0, 1024, 768));
+```
