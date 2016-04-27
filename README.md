@@ -26,6 +26,16 @@ The c++ part files are provided for Visual Studio 2008.The next step is to open 
 
 * **Build java part:** make sure you have install Java sdk 1.6+. Use NetBeans to open the project("WinRobot\java\WinRobot").Copy c++ output files(WinRobotHost*.exe,JNIAdapter*.dll,WinRobotCore*.dll,WinRobotHook*.dll,WinRobotHostPS*.dll) to WinRobot\Java\WinRobot\).
 
+### Install
+
+> For Win32:
+    
+    WinRobotHostx32.exe -I
+    
+> For Win64:
+    
+    WinRobotHostx64.exe -I
+
 ### How to use
 
 > C++
