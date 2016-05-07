@@ -13,7 +13,7 @@
     WinRobot\Java The java part of the project
     
 * **Build C++ part:** Add/adjust the following environment variables (via Control Panel/System/Advanced/Environment Variables):set JDKDIR to the path of jdk include,for example "c:\Program Files\Java\jdk1.6.0_22\include"
-The c++ part files are provided for Visual Studio 2008.The next step is to open "WinRobot\JNI\WinRobot.sln" and build the solution.The output directory is "WinRobot\bin\debug" and "WinRobot\bin\release".If all succeed,the following targets will be created:WinRobotHost.exe,JNIAdapter.dll,WinRobotCore.dll,WinRobotHook.dll,WinRobotHostPS.dll. 
+The c++ part files are provided for Visual Studio 2010 **sp1**.The next step is to open "WinRobot\JNI\WinRobot.sln" and build the solution.The output directory is "WinRobot\bin\debug" and "WinRobot\bin\release".If all succeed,the following targets will be created:WinRobotHost.exe,JNIAdapter.dll,WinRobotCore.dll,WinRobotHook.dll,WinRobotHostPS.dll. 
 
     > About the output files:
 
@@ -24,7 +24,7 @@ The c++ part files are provided for Visual Studio 2008.The next step is to open 
         WinRobotHostPS*.dll Proxy dll for WinRobotHost*.exe,needed by ATL service.
 
 
-* **Build java part:** make sure you have install Java sdk 1.6+. Use NetBeans to open the project("WinRobot\java\WinRobot").Copy c++ output files(WinRobotHost*.exe,JNIAdapter*.dll,WinRobotCore*.dll,WinRobotHook*.dll,WinRobotHostPS*.dll) to WinRobot\Java\WinRobot\).
+* **Build java part:** make sure you have install Java sdk 1.6+. Use NetBeans to open the project("WinRobot\java\WinRobot").Copy c++ output files(WinRobotHost\*.exe,JNIAdapter\*.dll,WinRobotCore\*.dll,WinRobotHook\*.dll,WinRobotHostPS\*.dll) to WinRobot\Java\WinRobot\build\classes\, to package them to the WinRobot.jar,
 
 ### Install
 
